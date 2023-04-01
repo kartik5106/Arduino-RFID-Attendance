@@ -58,11 +58,19 @@ These are cables with male-to-male, male-to-female, and female-to-female connect
 
 ## CIRCUIT DIAGRAM
 
-<img src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/circut_diagram.png" width="800" height= "600">  
+<img src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/circut_diagram.png" width="800" height= "900">  
 
 ## FLOW CHART 
 
-<img src="[https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/circut_diagram.png](https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/flow_chart.png)" width="800" height= "900">
+<img src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/flow_chart.png" width="800" height= "900">
+
+## FUTURE SCOPE
+
+This project can be further improved by adding features like a user interface for easy monitoring of attendance, integration with cloud-based systems for remote access to attendance data, and automatic notification to concerned authorities in case of absence or delay. The system can also be made more secure by implementing advanced encryption techniques to protect the attendance data from unauthorized access. Additionally, the system can be made more flexible by incorporating support for multiple RFID readers and customized check-in times for different groups of users. These enhancements can make the system more effective and user-friendly, providing better attendance management and monitoring capabilities for organizations and institutions.
+
+## CONCLUSION
+
+In conclusion, this program for an RFID attendance system provides an efficient and convenient way of taking attendance in educational institutions or organizations. The system uses an MFRC522 RFID reader, an SD card module, and an RTC DS1307 module to log the UID and the date and time of check-in for each employee or student. The system also checks if the user is late for check-in based on a predefined check-in time and displays a corresponding message and LED indicator.
 
 
 

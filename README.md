@@ -64,6 +64,19 @@ These are cables with male-to-male, male-to-female, and female-to-female connect
 
 <img src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/flow_chart.png" width="800" height= "900">
 
+## WORKING
+This is a program for an RFID attendance system that uses an MFRC522 RFID reader, an SD card module, and an RTC DS1307 module. The program reads the UID of a RFID tag when it is presented, logs the UID and the date and time to an SD card file named "DATA.txt", and checks if the user is late for check-in based on a predefined check-in time.
+
+The program begins with the inclusion of the required libraries, which are MFRC522.h for the RFID, SPI.h for the RFID and SD card module, SD.h for the SD card, and RTClib.h for the RTC. The RFID reader's chip select and reset pins are defined as CS_RFID and RST_RFID, respectively. The SD card's chip select pin is defined as CS_SD. An instance of the MFRC522 class is created, and a String variable called uidString is defined to store the UID of the RFID tag. An instance of the RTC_DS1307 class is also created.
+
+Next, the setup function initializes the serial port with a baud rate of 9600, initializes the SPI bus, and initializes the MFRC522 reader. The setup function also initializes the SD card module, and if initialization fails, an error message is printed. If initialization succeeds, a message indicating successful initialization is printed. The setup function also initializes the RTC and sets the date and time to the date and time the sketch was compiled. If the RTC is not running, an error message is printed.
+
+The loop function continuously checks for new RFID cards using the PICC_IsNewCardPresent function. If a new card is detected, the readRFID function is called. The readRFID function reads the card's UID and stores it in the uidString variable. The logCard function is then called to log the UID and the date and time to the SD card and get the check-in time. Finally, the verifyCheckIn function is called to check if the user is late for check-in.
+
+The readRFID function reads the UID of the RFID tag using the PICC_ReadCardSerial function. The function then concatenates the four bytes of the UID into a String variable called uidString. 
+
+The logCard function first enables the SD card's chip select pin, opens the "DATA.txt" file in write mode, and checks if the file opened successfully. If the file opened successfully, the function prints the UID and the date and time to the file in the format "UID, YYYY/MM/DD, HH:MM". The function then prints the date and time to the serial monitor and closes the file. Finally, the function stores the check-in time in the userCheckInHour and userCheckInMinute variables. If the file did not open successfully, the function prints an error message to the serial monitor.
+
 ## FUTURE SCOPE
 
 This project can be further improved by adding features like a user interface for easy monitoring of attendance, integration with cloud-based systems for remote access to attendance data, and automatic notification to concerned authorities in case of absence or delay. The system can also be made more secure by implementing advanced encryption techniques to protect the attendance data from unauthorized access. Additionally, the system can be made more flexible by incorporating support for multiple RFID readers and customized check-in times for different groups of users. These enhancements can make the system more effective and user-friendly, providing better attendance management and monitoring capabilities for organizations and institutions.

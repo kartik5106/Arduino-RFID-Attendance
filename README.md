@@ -26,8 +26,13 @@ This project proposes an RFID-based attendance system as an efficient and secure
 ## COMPONENTS DESCRIPTION
 
  -**ARDUINO UNO**
+ <img align="right" width="200" height="140"   src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/Arduino-Uno-R3.jpg"> 
+ 
  
 This is a microcontroller board based on the ATmega328p microcontroller. It has 14 digital input/output pins, 6 analog inputs, and supports serial communication via USB. The CH340G chip is used to convert USB signals to serial signals, allowing it to communicate with the computer.
+
+
+
 
  -**Mini Micro SD Card Reader Module**
  
@@ -49,5 +54,10 @@ This is a small WiFi module based on the ESP8266 chip. It can be used to connect
  -**Jumper cables** 
 
 These are cables with male-to-male, male-to-female, and female-to-female connectors that are used to connect the components together. They come in various lengths and colors to help keep the connections organize
+
+
+## CIRCUIT DIAGRAM
+
+<img src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/circut_diagram.png" width="800" height= "600">  
 
 

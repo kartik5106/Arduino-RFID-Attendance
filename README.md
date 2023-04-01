@@ -60,4 +60,9 @@ These are cables with male-to-male, male-to-female, and female-to-female connect
 
 <img src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/circut_diagram.png" width="800" height= "600">  
 
+## FLOW CHART 
+
+<img src="[https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/circut_diagram.png](https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/flow_chart.png)" width="800" height= "900">
+
+
 

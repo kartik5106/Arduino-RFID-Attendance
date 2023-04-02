@@ -26,7 +26,6 @@ This project proposes an RFID-based attendance system as an efficient and secure
 ## COMPONENTS DESCRIPTION
 
  -**ARDUINO UNO**
- <img align="right" width="200" height="140"   src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/Arduino-Uno-R3.jpg"> 
  
  
 This is a microcontroller board based on the ATmega328p microcontroller. It has 14 digital input/output pins, 6 analog inputs, and supports serial communication via USB. The CH340G chip is used to convert USB signals to serial signals, allowing it to communicate with the computer.

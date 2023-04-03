@@ -32,23 +32,9 @@ This is a microcontroller board based on the ATmega328p microcontroller. It has 
 
 
 
-
- -**Mini Micro SD Card Reader Module**
- 
- This is a small module that allows you to read and write data to microSD cards. It has a built-in level shifter, so it can be used with both 3.3V and 5V systems.
-
- -**Tiny RTC Real Time Clock DS1307 I2C IIC**
- 
-This is a real-time clock (RTC) module that uses the DS1307 chip. It communicates via I2C and provides accurate timekeeping even when the power is off.
-
-
  -**Transparent 400 Points Solderless Breadboard** 
 
 This is a breadboard that allows you to prototype electronic circuits without soldering. It has 400 points and a transparent design that makes it easy to see the connections.
-
- -**Ai Thinker ESP01S ESP8266 WiFi Module** 
-
-This is a small WiFi module based on the ESP8266 chip. It can be used to connect the system to the internet and enable remote monitoring and control.
 
  -**Jumper cables** 
 
@@ -64,17 +50,18 @@ These are cables with male-to-male, male-to-female, and female-to-female connect
 <img src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/flow_chart.png" width="800" height= "900">
 
 ## WORKING
-This is a program for an RFID attendance system that uses an MFRC522 RFID reader, an SD card module, and an RTC DS1307 module. The program reads the UID of a RFID tag when it is presented, logs the UID and the date and time to an SD card file named "DATA.txt", and checks if the user is late for check-in based on a predefined check-in time.
+This code uses an RFID module (MFRC522) to read RFID tags/cards and give access based on their UID. The UID of authorized cards is stored in the code and checked against the UID of the card that is scanned.
 
-The program begins with the inclusion of the required libraries, which are MFRC522.h for the RFID, SPI.h for the RFID and SD card module, SD.h for the SD card, and RTClib.h for the RTC. The RFID reader's chip select and reset pins are defined as CS_RFID and RST_RFID, respectively. The SD card's chip select pin is defined as CS_SD. An instance of the MFRC522 class is created, and a String variable called uidString is defined to store the UID of the RFID tag. An instance of the RTC_DS1307 class is also created.
+The code initializes the RFID module and sets up the pins for LED and buzzer. Then it enters the main loop where it checks if there is a new card present using the function mfrc522.PICC_IsNewCardPresent(). If a new card is not present, it displays a message on the LCD screen to show that the system is ready to scan a new card. If a new card is present, it reads the card's UID using mfrc522.PICC_ReadCardSerial(). The UID is then printed on the serial monitor and stored in a string variable 'content'.
 
-Next, the setup function initializes the serial port with a baud rate of 9600, initializes the SPI bus, and initializes the MFRC522 reader. The setup function also initializes the SD card module, and if initialization fails, an error message is printed. If initialization succeeds, a message indicating successful initialization is printed. The setup function also initializes the RTC and sets the date and time to the date and time the sketch was compiled. If the RTC is not running, an error message is printed.
+Next, the code checks if the scanned card's UID matches the authorized UIDs stored in the code. If the UID matches, it displays a success message on the LCD, turns on a green LED, and beeps the buzzer. If the UID does not match, it displays an error message on the LCD, turns on a red LED, and beeps the buzzer.
 
-The loop function continuously checks for new RFID cards using the PICC_IsNewCardPresent function. If a new card is detected, the readRFID function is called. The readRFID function reads the card's UID and stores it in the uidString variable. The logCard function is then called to log the UID and the date and time to the SD card and get the check-in time. Finally, the verifyCheckIn function is called to check if the user is late for check-in.
+The serial monitor is used to print the UID of the scanned card, as well as the name and ID of the authorized user who presented the card. This is useful for debugging and keeping track of who is accessing the system.
 
-The readRFID function reads the UID of the RFID tag using the PICC_ReadCardSerial function. The function then concatenates the four bytes of the UID into a String variable called uidString. 
+Overall, this code is a simple example of how to use an RFID module to control access to a system based on RFID tags/cards.
 
-The logCard function first enables the SD card's chip select pin, opens the "DATA.txt" file in write mode, and checks if the file opened successfully. If the file opened successfully, the function prints the UID and the date and time to the file in the format "UID, YYYY/MM/DD, HH:MM". The function then prints the date and time to the serial monitor and closes the file. Finally, the function stores the check-in time in the userCheckInHour and userCheckInMinute variables. If the file did not open successfully, the function prints an error message to the serial monitor.
+<img src="https://github.com/kartik5106/Arduino-RFID-Attendance/blob/main/serial_monitor.jpeg" width="800" height= "600">
+This is a sample working of the project. 
 
 ## FUTURE SCOPE
 
